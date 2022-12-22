@@ -16,41 +16,6 @@ class SearchConnectedView(generics.ListAPIView):
 	# permission_classes=[IsAuthenticated]
 
 
-# class SearchConnectedView_(generics.ListCreateAPIView):
-# 	queryset=SearchConnected.objects.all()
-# 	serializer_class=SearchConnectedSerializer
-
-# 	def post(self, request, *args, **kwargs):
-# 		first_name = request.POST.get('first_name')
-# 		last_name = request.POST.get('last_name')
-# 		email = request.POST.get('email')
-
-# 		prospect=Prospect.objects.get(first_name=first_name, last_name=last_name, email=email)
-
-# 		result=SearchConnected.objects.get(prospect=prospect)
-# 		serializer=self.serializer_class(result, many=False)
-# 		return Response(serializer.data)
-
-# @api_view(["GET","POST"])
-
-# def SearchConnectedView_(request):
-
-# 	# queryset=SearchConnected.objects.all()
-# 	# serializer=SearchConnectedSerializer(queryset, many=True)
-
-
-# 	if request.method=='POST':
-# 		first_name = request.POST.get('first_name')
-# 		last_name = request.POST.get('last_name')
-# 		email = request.POST.get('email')
-
-# 		prospect=Prospect.objects.get(first_name=first_name, last_name=last_name, email=email)
-
-# 		result=SearchConnected.objects.get(prospect=prospect)
-# 		serializer=self.serializer_class(result, many=False)
-# 	return Response(serializer.data)
-
-
 class SearchConnectedView_(APIView):
 	# queryset=SearchConnected.objects.all()
 	serializer_class=SearchKeyWordSerializer
@@ -81,8 +46,3 @@ class ResultConnectedView_(generics.RetrieveAPIView):
 	queryset=SearchConnected.objects.all()
 	serializer_class=SearchConnectedSerializer
 	permission_classes=[IsAuthenticated]
-
-
-# @api_view()
-# def home(request):
-# 	return Response(" http://127.0.0.1:8000/v3/ #View all data in the database \n  http://127.0.0.1:8000/v3/search/ \n }")
